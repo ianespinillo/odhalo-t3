@@ -1,0 +1,12 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+.bg-img{
+    background-image: url('/images/bgNavbar.webp');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    
+}

@@ -1,0 +1,18 @@
+
+services:
+  idalho:
+    image: postgres:14-alpine
+    container_name: idalho
+    restart: always
+    environment:
+      POSTGRES_ROOT_PASSWORD: idalho_password
+      POSTGRES_DB: idalho_dev_db
+      POSTGRES_USER: idalho_user
+      POSTGRES_PASSWORD: idalho_password
+    ports:
+      - "5400:5432"
+    volumes:
+      - idalho_pg_data:/var/lib/pg
+
+volumes:
+  idalho_pg_data:
