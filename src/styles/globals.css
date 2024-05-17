@@ -2,11 +2,70 @@
 @tailwind components;
 @tailwind utilities;
 
+.bg-img {
+  background-image: url("/images/bgNavbar.webp");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
 
-.bg-img{
-    background-image: url('/images/bgNavbar.webp');
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    
+.bg-qeo {
+  background-image: url("/images/others/qeo.webp");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+.bg-prop {
+  background-image: url("/images/others/prop.webp");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.bg-ciclico {
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    animation: cycle 20s infinite;
+}
+.div-1 {
+  background-color: red;
+  animation-delay: 0s;
+}
+.div-2 {
+    background-color: green;
+    animation-delay: 10s;
+}
+
+@keyframes cycle {
+  0% {
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.3;
+  }
+  20% {
+    opacity: 0.6;
+  }
+  30% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 1;
+  }
+  60% {
+    opacity: 0.6;
+  }
+  70% {
+    opacity: 0.3;
+  }
+  80% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
 }

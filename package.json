@@ -6,9 +6,9 @@
   "scripts": {
     "build": "next build",
     "db:push": "prisma db push",
-		"db:pull": "prisma db pull && prisma generate",
-		"db-build": "prisma generate && prisma db push",
-		"db-seed": "prisma db seed",
+    "db:pull": "prisma db pull && prisma generate",
+    "db-build": "prisma generate && prisma db push",
+    "db-seed": "prisma db seed",
     "db:studio": "prisma studio",
     "dev": "next dev",
     "postinstall": "prisma generate",
@@ -17,6 +17,9 @@
   },
   "dependencies": {
     "@auth/prisma-adapter": "^1.4.0",
+    "@emotion/react": "^11.11.4",
+    "@emotion/styled": "^11.11.5",
+    "@mui/material": "^5.15.17",
     "@prisma/client": "^5.10.2",
     "@t3-oss/env-nextjs": "^0.10.1",
     "@tanstack/react-query": "^5.25.0",

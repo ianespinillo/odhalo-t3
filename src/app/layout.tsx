@@ -3,11 +3,8 @@ import "@/styles/globals.css";
 import { Inter } from "next/font/google";
 
 import { TRPCReactProvider } from "@/trpc/react";
+import { Navbar } from "./_components/Navbar/Navbar";
 
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-sans",
-});
 
 export const metadata = {
   title: "Create T3 App",
@@ -22,8 +19,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>
-        <TRPCReactProvider>{children}</TRPCReactProvider>
+      <body className="min-h-[100vh] min-w-full flex flex-col gap-7 bg-[#c0c0c0]">
+        <TRPCReactProvider>
+          <header className="sm:px-4 md:pt-10 lg:mx-20">
+            <Navbar />
+          </header>
+          {children}
+        </TRPCReactProvider>
       </body>
     </html>
   );

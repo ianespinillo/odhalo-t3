@@ -10,6 +10,7 @@ export default {
         arial: 'arial',
       },
     },
+    
   },
   plugins: [],
 } satisfies Config;

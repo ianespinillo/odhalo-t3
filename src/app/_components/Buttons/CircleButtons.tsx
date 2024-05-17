@@ -1,18 +1,30 @@
+"use client";
+import { useRouter } from "next/navigation";
 import React from "react";
-import Link from 'next/link';
 interface props {
   text: string;
   className?: string;
 }
 
 export const CircleButtons = ({ text, className }: props) => {
+  const router = useRouter().push;
+  const urlNormalized = text
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .split(" ")
+    .join("-")
+    .toLowerCase();
+    
   return (
-    <div className={`${className} rounded-full p-4 outline outline-[3px] outline-black aspect-square`}>
-      <div className="rounded-full p-4 outline outline-[3px] outline-black aspect-square">
+    <div
+      className={`${className} aspect-square rounded-full p-3 outline outline-[3px] outline-black`}
+    >
+      <div className="aspect-square rounded-full p-2 outline outline-[3px] outline-black">
         <button
-            className="font-arial text-white text-xl rounded-full h-28 w-28 bg-black text-center"
+          className="h-[68px] w-[68px] rounded-full bg-black text-center font-arial text-white md:h-16 md:w-16"
+          onClick={() => router(`/${text === "ODALHO" ? "/" : urlNormalized}`)}
         >
-            <span>{text}</span>
+          <span className="text-[12px]">{text}</span>
         </button>
       </div>
     </div>
