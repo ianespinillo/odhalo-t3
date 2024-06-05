@@ -1,9 +1,9 @@
 export const links: string[] = [
     'Quién es ODALHO',
+    'Propósito',
     'Propuesta',
-    'Capitulos',
     'ODALHO',
-    'Descargas',
+    'Capitulos',
     'Contacto',
-    'Interés'
+    'Donaciones'
 ]

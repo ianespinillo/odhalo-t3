@@ -22,50 +22,64 @@
   background-size: cover;
 }
 
-.bg-ciclico {
-    opacity: 0;
+@layer utilities {
+  .bg-ciclico {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     animation: cycle 20s infinite;
-}
-.div-1 {
-  background-color: red;
-  animation-delay: 0s;
-}
-.div-2 {
-    background-color: green;
+  }
+  .div-1 {
+    animation-delay: 0s;
+  }
+  .div-2 {
+    background-image: url("/images/chapters/bgText.webp");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
     animation-delay: 10s;
+  }
+  @keyframes cycle {
+    0% {
+      opacity: 0;
+    }
+    10% {
+      opacity: 0.3;
+    }
+    20% {
+      opacity: 0.6;
+    }
+    30% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 1;
+    }
+    60% {
+      opacity: 0.6;
+    }
+    80% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
 }
 
-@keyframes cycle {
-  0% {
-    opacity: 0;
-  }
-  10% {
-    opacity: 0.3;
-  }
-  20% {
-    opacity: 0.6;
-  }
-  30% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 1;
-  }
-  60% {
-    opacity: 0.6;
-  }
-  70% {
-    opacity: 0.3;
-  }
-  80% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 0;
-  }
+.bg-chapters-text {
+  background-image: url("/images/chapters/bgText.webp");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: 100%;
+}
+
+.bg-proposito{
+  background-image: url("/images/others/proposito.webp");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 }
