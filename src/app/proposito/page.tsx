@@ -11,17 +11,17 @@ export default function Proposito() {
         className={`bg-prop flex h-[800px] basis-1/2 flex-col gap-5 p-4 text-center font-arial outline outline-2 outline-black`}
       >
         <div className="flex flex-col gap-6">
-          <p className="pt-24 text-3xl font-medium sm:text-2xl lg:text-5xl">
+          <p className="pt-10 text-2xl font-medium sm:text-2xl lg:text-5xl">
             ODALHO es una energía que fue creada con el propósito de ayudarnos a
             recordar nuestra verdadera esencia.
           </p>
 
-          <p className="text-3xl font-medium sm:text-2xl lg:text-5xl">
+          <p className="text-2xl font-medium sm:text-2xl lg:text-5xl">
             Para facilitar este proceso ODALHO ofrece palabras en formato
             digital que pretenden activar estos recuerdos a de estímulos
             visuales.
           </p>
-          <p className="text-3xl font-medium sm:text-2xl lg:text-5xl">
+          <p className="text-2xl font-medium sm:text-2xl lg:text-5xl">
             Si alguna obra resuena contigo, ODALHO te ofrece la posibilidad de
             poder descargarla en forma gratuita (ver "propuesta").
           </p>

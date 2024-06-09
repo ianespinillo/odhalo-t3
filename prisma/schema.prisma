@@ -72,3 +72,17 @@ model VerificationToken {
 
     @@unique([identifier, token])
 }
+
+model Chapters {
+    number  Int       @id @unique @default(autoincrement())
+    name    String
+    Picture Picture[]
+}
+
+model Picture {
+    id            Int      @id @unique @default(autoincrement())
+    name          String
+    imageUrl      String
+    chapterNumber Int
+    chapter       Chapters @relation(fields: [chapterNumber], references: [number])
+}

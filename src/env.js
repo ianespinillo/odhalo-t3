@@ -23,6 +23,8 @@ export const env = createEnv({
       process.env.VERCEL ? z.string() : z.string().url()
     ),
     MERCADO_PAGO_ACCESS_TOKEN: z.string(),
+    MAIL_USER: z.string(),
+    MAIL_PASSWORD: z.string(),
   },
 
   /**
@@ -43,7 +45,9 @@ export const env = createEnv({
     NODE_ENV: process.env.NODE_ENV,
     NEXTAUTH_SECRET: process.env.NEXTAUTH_SECRET,
     NEXTAUTH_URL: process.env.NEXTAUTH_URL,
-    MERCADO_PAGO_ACCESS_TOKEN: process.env.MP_ACCESS_TOKEN
+    MERCADO_PAGO_ACCESS_TOKEN: process.env.MERCADO_PAGO_ACCESS_TOKEN,
+    MAIL_USER: process.env.MAIL_USER,
+    MAIL_PASSWORD: process.env.MAIL_PASSWORD,
   },
   /**
    * Run `build` or `dev` with `SKIP_ENV_VALIDATION` to skip env validation. This is especially
