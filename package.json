@@ -8,17 +8,21 @@
     "db:push": "prisma db push",
     "db:pull": "prisma db pull && prisma generate",
     "db-build": "prisma generate && prisma db push",
-    "db-seed": "prisma db seed",
+    "db-seed": "NODE_ENV=development prisma db seed",
     "db:studio": "prisma studio",
     "dev": "next dev",
     "postinstall": "prisma generate",
     "lint": "next lint",
     "start": "next start"
   },
+  "prisma": {
+    "seed": "tsx prisma/seed.ts"
+  },
   "dependencies": {
     "@auth/prisma-adapter": "^1.4.0",
     "@emotion/react": "^11.11.4",
     "@emotion/styled": "^11.11.5",
+    "@mui/icons-material": "^5.15.20",
     "@mui/material": "^5.15.17",
     "@prisma/client": "^5.10.2",
     "@t3-oss/env-nextjs": "^0.10.1",
@@ -34,12 +38,15 @@
     "mercadopago": "^2.0.9",
     "next": "^14.2.1",
     "next-auth": "^4.24.6",
+    "next-intl": "^3.17.2",
     "nodemailer": "^6.9.13",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "server-only": "^0.0.1",
+    "sharp": "^0.33.4",
     "superjson": "^2.2.1",
     "tailwind-merge": "^2.3.0",
+    "tsx": "^4.14.1",
     "zod": "^3.23.3"
   },
   "devDependencies": {

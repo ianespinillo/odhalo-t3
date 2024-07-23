@@ -83,3 +83,29 @@
   background-position: center;
   background-size: cover;
 }
+
+.bg-chapters{
+  background-image: url("/images/chapters/bgChapters.webp");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.VIpgJd-ZVi9od-l4eHX-hSRGPd {
+  display: none !important;
+}
+
+iframe {
+  display: none !important;
+  position: absolute !important;
+  bottom: 0 !important;
+}
+
+/* Ocultar el logotipo de Google Translate */
+.goog-te-gadget {
+  color: transparent !important;
+}
+
+.goog-te-gadget select {
+  color: black !important;
+}

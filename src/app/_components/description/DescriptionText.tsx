@@ -15,7 +15,7 @@ export const DescriptionText = ({ ask, text, className }: props) => {
       </div>
       <div className={`${className} flex h-[800px] basis-1/2 flex-col gap-5 p-4 pt-10 text-center font-arial outline outline-2 outline-black`}>
         <h1 className="text-6xl font-[520]">{ask} </h1>
-        <p className="pt-24 text-3xl font-medium sm:text-2xl lg:text-3xl">
+        <p className="pt-16 text-3xl font-medium sm:text-2xl lg:text-4xl italic">
           {text}
         </p>
       </div>

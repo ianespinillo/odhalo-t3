@@ -13,6 +13,8 @@ import { ZodError } from "zod";
 
 import { getServerAuthSession } from "@/server/auth";
 import { db } from "@/server/db";
+import { NextRequest } from "next/server";
+
 
 /**
  * 1. CONTEXT
@@ -28,7 +30,7 @@ import { db } from "@/server/db";
  */
 export const createTRPCContext = async (opts: { headers: Headers }) => {
   const session = await getServerAuthSession();
-
+  
   return {
     db,
     session,
@@ -96,6 +98,7 @@ export const publicProcedure = t.procedure;
  * @see https://trpc.io/docs/procedures
  */
 export const protectedProcedure = t.procedure.use(({ ctx, next }) => {
+  /* console.log(ctx.headers.get("cookie")) */
   if (!ctx.session || !ctx.session.user) {
     throw new TRPCError({ code: "UNAUTHORIZED" });
   }

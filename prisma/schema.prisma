@@ -80,9 +80,10 @@ model Chapters {
 }
 
 model Picture {
-    id            Int      @id @unique @default(autoincrement())
+    id            String   @id @unique
     name          String
     imageUrl      String
+    publicImgUrl  String
     chapterNumber Int
     chapter       Chapters @relation(fields: [chapterNumber], references: [number])
 }

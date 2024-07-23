@@ -1,6 +1,8 @@
-import { postRouter } from "@/server/api/routers/post";
+
 import { createCallerFactory, createTRPCRouter } from "@/server/api/trpc";
 import { NodemailerRouter } from "./routers/Nodemailer/router";
+import { ChapterRouter } from './routers/Chapter/router';
+import { PicturesRouter } from './routers/Pictures/router';
 
 /**
  * This is the primary router for your server.
@@ -8,7 +10,9 @@ import { NodemailerRouter } from "./routers/Nodemailer/router";
  * All routers added in /api/routers should be manually added here.
  */
 export const appRouter = createTRPCRouter({
-  nodemailer: NodemailerRouter
+  nodemailer: NodemailerRouter,
+  chapters: ChapterRouter,
+  pictures: PicturesRouter
 });
 
 // export type definition of API

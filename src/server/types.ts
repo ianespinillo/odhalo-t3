@@ -9,7 +9,20 @@ export interface EmailInput {
 }
 
 export interface Picture{
-    name:string
-    image: File
-    chapter:number
+    code: string;
+    title:string;
+    image: File;
+    chapter:number;
+}
+
+export interface Chapter{
+    number:number
+}
+
+export interface UpdatePicture{
+    code: string;
+    oldCode: string;
+    title:string;
+    chapter:number;
+    image?: File;
 }

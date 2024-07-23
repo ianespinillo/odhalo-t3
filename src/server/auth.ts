@@ -6,12 +6,11 @@ import {
 } from "next-auth";
 import { type Adapter } from "next-auth/adapters";
 import CredentialsProvider from "next-auth/providers/credentials";
-import {compare } from 'bcryptjs';
+import { compare } from "bcryptjs";
 import { env } from "@/env";
 import { db } from "@/server/db";
-import async from '../app/page';
-
 import { loginDTO } from "./dtos/login.dto";
+
 declare module "next-auth" {
   interface Session extends DefaultSession {
     user: {
@@ -20,49 +19,72 @@ declare module "next-auth" {
       // role: UserRole;
     } & DefaultSession["user"];
   }
-
-  
 }
 export const authOptions: NextAuthOptions = {
   callbacks: {
-    session: ({ session, user }) => ({
-      ...session,
-      user: {
-        ...session.user,
-        id: user.id,
-      },
-    }),
+    session: async ({ session, token }) => {
+      
+      return {
+        ...session,
+        user: {
+          ...session.user,
+          id: token.id,
+        },
+      };
+    },
+    jwt: async ({ user, token }) => {
+      return token;
+    },
+    signIn: async ({ user }) => {
+      return true;
+    },
   },
   adapter: PrismaAdapter(db) as Adapter,
   providers: [
     CredentialsProvider({
-      name: 'Login',
+      name: "Login",
       credentials: {
         email: {
-          label: 'email',
-          type: 'email',
-          placeholder: 'example@example.com'
+          label: "email",
+          type: "email",
+          placeholder: "example@example.com",
         },
-        password: { label: 'password', type: 'password' }
+        password: { label: "password", type: "password" },
       },
-      type: 'credentials',
-      id: 'Login',
+      type: "credentials",
+      id: "Login",
       async authorize(credentials, req) {
-        const result = loginDTO.safeParse(credentials)
-        if(!result.success) return null;
-        
-        const { email, password } = result.data
-        const userExist= await db.user.findUnique({
-          where: { email: email}
-        })
-        if(!userExist) return null;
-        const match= await compare(password, userExist.password);
-        if(!match) return null;
-        return userExist
+        const result = loginDTO.safeParse(credentials);
+
+        if (!result.success) return null;
+
+        const { email, password } = result.data;
+        const userExist = await db.user.findUnique({
+          where: { email: email },
+        });
+
+        if (!userExist) return null;
+        //const match= await compare(password, userExist.password);
+        const match = password === userExist.password;
+        if (!match) return null;
+        return {
+          id: userExist.id,
+          name: userExist.name,
+          image: userExist.image,
+          email: userExist.email,
+        };
       },
     }),
   ],
+  secret: env.NEXTAUTH_SECRET,
+  session: {
+    strategy: "jwt",
+    maxAge: 30 * 24 * 60, // 30 days
+    updateAge: 24 * 60 * 60, // 24 hours
+  },
+  pages: {
+    signIn: "/admin/login",
+  },
 };
-
 
 export const getServerAuthSession = () => getServerSession(authOptions);

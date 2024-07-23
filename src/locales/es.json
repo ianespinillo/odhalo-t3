@@ -1,0 +1,55 @@
+{
+  "capitulo": "Capítulo",
+  "navbar": {
+    "nav1": "Quien es ODALHO",
+    "nav2": "Propuesta",
+    "nav3": "Proposito",
+    "nav4": "ODALHO",
+    "nav5": "Capitulos",
+    "nav6": "Contacto",
+    "nav7": "Donaciones",
+    "test": "test"
+  },
+  "capitulos": {
+    "text1": "La obra de ODALHO se estructura en seis capítulos y cada capítulo corresponde a una letra de su nombre. Origen estelar, Dualidad, Activación, Liberación, Humanización y Omniexistencia. La energía de ODALHO es dinámica y se expande continuamente, y cuando se complete la última obra correspondiente a la última letra de su nombre, ODALHO habrá cumplido su propósito.",
+    "caps": {
+      "cap1": "Origen estelar",
+      "cap2": "Dualidad",
+      "cap3": "Activación",
+      "cap4": "Liberación",
+      "cap5": "Humanización",
+      "cap6": "Omniexistencia"
+    }
+  },
+  "contacto": {
+    "title": "Contactése con ODALHO",
+    "form": {
+      "mail": "Email",
+      "subject": "Asunto/Pregunta",
+      "message": "Mensaje",
+      "send": "Enviar"
+    }
+  },
+  "donaciones": {
+    "text1": "Si quieres contribuir a la creación de la obra de ODALHO, puede hacerlo a través de los siguientes medios:",
+    "text2": "ODALHO agradece mucho su donación. Esto facilita que el proyecto puedacontinuar plasmándose y difundiéndose en el mundo material."
+  },
+  "proposito":{
+    "text1": "ODALHO es una energía que fue creada con el propósito de ayudarnos a recordar nuestra verdadera esencia.",
+    "text2": "Para facilitar este proceso ODALHO ofrece obras en formato digital que pretenden activar estos recuerdos a de estímulos visuales.",
+    "text3": "Si alguna obra resuena contigo, ODALHO te ofrece la posibilidad de poder descargarla en forma gratuita (ver 'propuesta')."
+  },
+  "propuesta":{
+    "text":"ODALHO facilita que sus obras sean de dominio público. La persona interesada va a poder descargar las obras de su elección de la página web en formato digital para luego utilizarla y aplicarla de la forma que lo desee. Se deberán respetar dos premisas:",
+    "item1":"Respetar la autoría (la firma de ODALHO debe figurar en la obra)",
+    "item2":"Respetar la esencia de la obra ( no se deben realizar modificaciones de tamaño tipo en la misma)"
+  },
+  "quien-es-odalho":{
+    "ask": "¿Quién es ODALHO?",
+    "text": "ODALHO es una energía que tiene vida propia, está en continua expansión y tiene un propósito definido. La energía de ODALHO crea las obras y les da sentido, y por lo tanto es el legítimo autor. Mi persona no es relevante, y mi trabajo consiste en facilitar el proceso de plasmación de ODALHO en el mundo material. Soy simplemente el facilitador de ODALHO."
+  },
+  "buttons":{
+    "see": "Agrandar",
+    "download": "Descargar"
+  }
+}

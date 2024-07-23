@@ -1,0 +1,56 @@
+{
+    "capitulo": "Chapter",
+    "navbar": {
+      "nav1": "Who is ODALHO",
+      "nav2": "Proposal",
+      "nav3": "Purpose",
+      "nav4": "ODALHO",
+      "nav5": "Chapters",
+      "nav6": "Contact",
+      "nav7": "Donations",
+      "test": "test"
+    },
+    "capitulos": {
+      "text1": "ODALHO's work is structured into six chapters, each corresponding to a letter of his name. Stellar Origin, Duality, Activation, Liberation, Humanization, and Omniexistence. ODALHO's energy is dynamic and continually expanding, and when the last work corresponding to the last letter of his name is completed, ODALHO will have fulfilled its purpose.",
+      "caps": {
+        "cap1": "Stellar Origin",
+        "cap2": "Duality",
+        "cap3": "Activation",
+        "cap4": "Liberation",
+        "cap5": "Humanization",
+        "cap6": "Omniexistence"
+      }
+    },
+    "contacto": {
+      "title": "Contact ODALHO",
+      "form": {
+        "mail": "Email",
+        "subject": "Subject/Question",
+        "message": "Message",
+        "send": "Send"
+      }
+    },
+    "donaciones": {
+      "text1": "If you want to contribute to the creation of ODALHO's work, you can do so through the following means:",
+      "text2": "ODALHO greatly appreciates your donation. This facilitates the project's ability to continue manifesting and spreading in the material world."
+    },
+    "proposito": {
+      "text1": "ODALHO is an energy created with the purpose of helping us remember our true essence.",
+      "text2": "To facilitate this process, ODALHO offers works in digital format that aim to activate these memories through visual stimuli.",
+      "text3": "If any work resonates with you, ODALHO offers you the possibility to download it for free (see 'proposal')."
+    },
+    "propuesta": {
+      "text": "ODALHO makes its works public domain. Interested individuals will be able to download the works of their choice from the website in digital format to then use and apply as they wish. Two premises must be respected:",
+      "item1": "Respect authorship (ODALHO's signature must appear on the work)",
+      "item2": "Respect the essence of the work (no modifications of any kind should be made)"
+    },
+    "quien-es-odalho": {
+      "ask": "Who is ODALHO?",
+      "text": "ODALHO is an energy with a life of its own, continuously expanding and with a defined purpose. ODALHO's energy creates the works and gives them meaning, and therefore is the rightful author. My person is not relevant, and my work consists of facilitating the process of manifesting ODALHO in the material world. I am simply ODALHO's facilitator."
+    },
+    "buttons": {
+      "see": "See a preview",
+      "download": "Download"
+    }
+  }
+  

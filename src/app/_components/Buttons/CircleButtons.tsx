@@ -1,12 +1,14 @@
 "use client";
-import { useRouter } from "next/navigation";
+import { useRouter } from "../../../navigation";
 import React from "react";
 interface props {
   text: string;
   className?: string;
+  lang?: string;
+  link?: string;
 }
 
-export const CircleButtons = ({ text, className }: props) => {
+export const CircleButtons = ({ text, className, lang }: props) => {
   const router = useRouter().push;
   const urlNormalized = text
     .normalize("NFD")
