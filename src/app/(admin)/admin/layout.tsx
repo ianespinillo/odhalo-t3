@@ -12,7 +12,7 @@ export default function AdminLayout({
 }) {
   return (
     <html lang="en">
-      <body className="bg-[#c0c0c0] min-h-[100vh] min-w-full flex">{children}</body>
+      <body className="bg-[#c0c0c0] min-h-[100vh] min-w-full flex items-center">{children}</body>
     </html>
   )
 }

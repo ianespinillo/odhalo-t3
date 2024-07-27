@@ -5,15 +5,15 @@ import { locales, pathnames } from './utils/locales';
 import type { NextFetchEvent, NextRequest } from "next/server";
 
 const publicPages = [
-  "/:lang/",
-  "/:lang/capitulos",
-  "/:lang/capitulos/:number",
-  "/:lang/quien-es-odalho",
-  "/:lang/contacto",
-  "/:lang/propuesta",
-  "/:lang/proposito",
-  "/:lang/donaciones",
-  "/:lang/doncaciones/mp",
+  "/",
+  "/capitulos",
+  "/capitulos/:number",
+  "/quien-es-odalho",
+  "/contacto",
+  "/propuesta",
+  "/proposito",
+  "/donaciones",
+  "/doncaciones/mp",
 ];
 // This function can be marked `async` if using `await` inside
 const authHandler = withAuth(
@@ -30,6 +30,7 @@ const authHandler = withAuth(
     },
     pages: {
       signIn: "/admin/login",
+      
     },
   },
 );
@@ -41,29 +42,23 @@ const i18Handler = createMiddleware({
   pathnames: pathnames
   
 });
-export async function middleware(request: NextRequest) {
-  const isPublicPage = !request.nextUrl.pathname.includes("admin");
-  console.log(isPublicPage);
+export default function middleware(req: NextRequest) {
+  const publicPathnameRegex = RegExp(
+    `^(/(${locales.join('|')}))?(${publicPages
+      .flatMap((p) => (p === '/' ? ['', '/'] : p))
+      .join('|')})/?$`,
+    'i'
+  );
+  const isPublicPage = publicPathnameRegex.test(req.nextUrl.pathname);
+
   if (isPublicPage) {
-    return i18Handler(request);
+    return i18Handler(req);
   } else {
-    return (authHandler as any)(request);
+    return (authHandler as any)(req);
   }
 }
 
-// See "Matching Paths" below to learn more
-
 export const config = {
-  matcher: [
-		// Enable a redirect to a matching locale at the root
-		'/',
-
-		// Set a cookie to remember the previous locale for
-		// all requests that have a locale prefix
-		'/(es|en|fr)/:path*',
-
-		// Enable redirects that add missing locales
-		// (e.g. `/pathnames` -> `/en/pathnames`)
-		'/((?!_next|_vercel|.*\\..*).*)',
-	],  
+  // Skip all paths that should not be internationalized
+  matcher: ['/((?!api|_next|.*\\..*).*)']
 };

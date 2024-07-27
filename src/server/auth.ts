@@ -57,15 +57,15 @@ export const authOptions: NextAuthOptions = {
         const result = loginDTO.safeParse(credentials);
 
         if (!result.success) return null;
-
+        
         const { email, password } = result.data;
         const userExist = await db.user.findUnique({
           where: { email: email },
         });
 
         if (!userExist) return null;
-        //const match= await compare(password, userExist.password);
-        const match = password === userExist.password;
+        const match= await compare(password, userExist.password);
+        console.log(match);
         if (!match) return null;
         return {
           id: userExist.id,

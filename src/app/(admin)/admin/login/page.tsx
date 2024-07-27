@@ -15,10 +15,9 @@ export default function AdminLogin() {
     const req= await signIn("Login", {
       email: credentials.email,
       password: credentials.password,
-      //redirect: false,
+      redirect: false,
       callbackUrl: "/admin/obras",
     });
-    console.log(req);
   }
 
   return (
