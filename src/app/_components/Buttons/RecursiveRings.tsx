@@ -1,6 +1,5 @@
 "use client";
 import React, { useEffect, useRef, useState } from "react";
-import { cn } from "../../../utils/cn";
 
 interface CircleButtonProps {
     rings: number;
@@ -15,7 +14,7 @@ interface RecursiveRingProps {
 }
 const RECURSIVE_FACTOR = 0.8
 
-function RecursiveRing({ currentRings, fatherDimension }: RecursiveRingProps) {
+function RecursiveRing({ currentRings, fatherDimension }: Readonly<RecursiveRingProps>) {
   if (currentRings === 0) return null;
 
   const padding = currentRings;

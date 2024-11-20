@@ -1,7 +1,7 @@
 "use client";
 import { useRouter } from "next/navigation";
 import React from "react";
-interface props {
+interface Props {
   text: string;
   letter: string;
   className?: string;
@@ -13,8 +13,8 @@ export const CircleButtonsWithLetter = ({
   className,
   letter,
   link,
-}: props) => {
-  const router = useRouter().push;
+}: Props) => {
+  const router = useRouter();
   const urlNormalized = !link
     ? text
         .normalize("NFD")
@@ -36,7 +36,7 @@ export const CircleButtonsWithLetter = ({
       <div className="aspect-square rounded-full p-3 outline outline-[3px] outline-black">
         <button
           className="h-24 w-24 rounded-full bg-black text-center font-arial text-white lg:h-[76px] lg:w-[76px] "
-          onClick={() => router(`${text === "ODALHO" ? "/" : urlNormalized}`)}
+          onClick={() => router.push(`${text === "ODALHO" ? "/" : urlNormalized}`)}
         >
           <div className="flex flex-col items-center justify-center ">
             <span className="text-2xl">{letter.toUpperCase()}</span>

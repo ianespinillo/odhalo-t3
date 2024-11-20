@@ -1,11 +1,11 @@
-import { EmailInput } from "@/server/types";
+import type { EmailInput } from "@/server/types";
 import { api } from "@/trpc/server";
 import { useTranslations } from "next-intl";
 import React from "react";
 
 export default function Contact() {
   const t = useTranslations("contacto");
-  return (
+  return (  
     <div className="mx-10 flex flex-col items-center justify-center gap-14 py-7">
       <h1 className="font-arial text-5xl">{t("title")}</h1>
       <form
@@ -58,5 +58,5 @@ async function sendEmail(formData: FormData) {
     message: formData.get("message") as string,
     subject: formData.get("subject") as string,
   };
-  api.nodemailer.sendEmail(data);
+  await api.nodemailer.sendEmail(data);
 }

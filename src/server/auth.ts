@@ -63,10 +63,10 @@ export const authOptions: NextAuthOptions = {
           where: { email: email },
         });
 
-        if (!userExist) return null;
+        if (!userExist) throw new Error("Correo electronico incorrecto");
         const match= await compare(password, userExist.password);
         console.log(match);
-        if (!match) return null;
+        if (!match) throw new Error("La contraseña es incorrecta");
         return {
           id: userExist.id,
           name: userExist.name,

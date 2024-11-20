@@ -43,13 +43,7 @@ const i18Handler = createMiddleware({
   
 });
 export default function middleware(req: NextRequest) {
-  const publicPathnameRegex = RegExp(
-    `^(/(${locales.join('|')}))?(${publicPages
-      .flatMap((p) => (p === '/' ? ['', '/'] : p))
-      .join('|')})/?$`,
-    'i'
-  );
-  const isPublicPage = publicPathnameRegex.test(req.nextUrl.pathname);
+  const isPublicPage = !req.nextUrl.pathname.includes('admin');
 
   if (isPublicPage) {
     return i18Handler(req);

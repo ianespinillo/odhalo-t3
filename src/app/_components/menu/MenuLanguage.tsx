@@ -1,16 +1,16 @@
 "use client";
-import React, { useState, type MouseEvent } from 'react';
+import React, { useState } from 'react';
 import Button from '@mui/material/Button';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
-import { useParams, useSearchParams } from 'next/navigation';
+import {useSearchParams } from 'next/navigation';
 import { usePathname, useRouter } from '../../../navigation';
-import { languages, Locales, locales } from '../../../utils/locales';
+import { languages, Locales } from '../../../utils/locales';
 
 
 export const MenuLanguage = () => {
     const router = useRouter()
-    const params= useParams()
+
     const qParams= useSearchParams()
     const pathname= usePathname()
     const [isOpen, setIsOpen] = useState(false)
@@ -19,11 +19,11 @@ export const MenuLanguage = () => {
     
     
     const changeLanguage = (lng: Locales) =>{
-        /*@ts-ignore*/
+        
         router.replace(`${pathname}?${qParams.toString()}`, {locale: lng })
     }
     return (
-      <div>
+      <div className='p-3'>
         <Button
           id="basic-button"
           color='inherit'
@@ -39,9 +39,7 @@ export const MenuLanguage = () => {
           
           open={isOpen}
           onClose={handleClose}
-          MenuListProps={{
-            'aria-labelledby': 'basic-button',
-          }}
+          
         >
           {
             languages.map(l => <MenuItem key={l.name} onClick={() => changeLanguage(l.path as Locales)}>{l.name}</MenuItem>)

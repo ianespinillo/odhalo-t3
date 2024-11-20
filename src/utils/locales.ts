@@ -2,8 +2,8 @@ import type { LocalePrefix, Pathnames } from 'next-intl/routing'
 
 
 export const locales = ['es', 'en', "fr"] as const
-export const defaultLocale = 'es' as const
-
+export const defaultLocale = 'es'
+	
 export type Locales = typeof locales[number]
 
 export const pathnames: Pathnames<typeof locales> = {
@@ -21,12 +21,12 @@ export const pathnames: Pathnames<typeof locales> = {
 	'/donaciones': {
 		es: '/donaciones',
 		en: '/donations',
-		fr: '/donations',
+		fr: '/dons',
 	},
 	'/proposito': {
 		es: '/proposito',
 		en: '/purpose',
-		fr: '/proposition',
+		fr: '/objectif',
 	},
 	'/propuesta': {
 		es: '/propuesta',

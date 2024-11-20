@@ -21,7 +21,7 @@ export default function Donations() {
             alt="mp"
           />
         </Link>
-        <Link href="https://paypal.me/iangamerps3" className="border-2 border-black flex justify-center items-center bg-white p-3">
+        <Link href="https://paypal.me/CristianJonin" className="border-2 border-black flex justify-center items-center bg-white p-3">
           <Image
             width={200}
             height={200}
