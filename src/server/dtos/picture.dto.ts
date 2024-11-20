@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { Picture, UpdatePicture } from '../types';
+import type { Picture, UpdatePicture } from '../types';
 import { Langs } from "@/types";
 
 export const PictureDTO: z.ZodType<Picture> = z.object({

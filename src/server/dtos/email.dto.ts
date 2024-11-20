@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { EmailInput } from "../types";
+import type { EmailInput } from "../types";
 
 export const EmailDTO: z.ZodType<EmailInput> = z.object({
     email: z.string().email(),

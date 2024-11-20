@@ -1,5 +1,5 @@
 export const intToRoman = (num: number) => {
-    const romanNumerals: { [key: number]: string } = {
+    const romanNumerals: Record<number, string> = {
         1000: 'M',
         900: 'CM',
         500: 'D',

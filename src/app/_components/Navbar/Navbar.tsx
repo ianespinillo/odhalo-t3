@@ -21,7 +21,6 @@ export const Navbar = ({lang}: {lang: string}) => {
           
           return (
             <CircleButtons
-              lang={lang}
               key={link}
               text={text}
               className={

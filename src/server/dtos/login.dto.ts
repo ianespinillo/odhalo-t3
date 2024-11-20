@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { Login } from "../types";
+import type { Login } from "../types";
 
 export const loginDTO: z.ZodType<Login>= z.object({
     email: z.string().email(),

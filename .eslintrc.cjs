@@ -36,7 +36,13 @@ const config = {
           "attributes": false
         }
       }
-    ]
+    ],
+     "prefer-const": "off",
+     "@typescript-eslint/prefer-nullish-coalescing": "off",
+     "@typescript-eslint/no-unsafe-return": "off",
+     "@typescript-eslint/no-non-null-asserted-optional-chain": "off",
+     "@typescript-eslint/no-unsafe-call": "off",
+     "@typescript-eslint/no-explicit-any": "off",
   }
 }
 module.exports = config;

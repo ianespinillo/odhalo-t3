@@ -1,15 +1,13 @@
 "use client";
 import { useRouter } from "../../../navigation";
 import React from "react";
-interface props {
+interface Props {
   text: string;
   className?: string;
-  lang?: string;
-  link?: string;
 }
 
-export const CircleButtons = ({ text, className, lang }: props) => {
-  const router = useRouter().push;
+export const CircleButtons = ({ text, className }: Props) => {
+  const router = useRouter();
   const urlNormalized = text
     .normalize("NFD")
     .replace(/[\u0300-\u036f]/g, "")
@@ -24,7 +22,7 @@ export const CircleButtons = ({ text, className, lang }: props) => {
       <div className="aspect-square rounded-full p-2 outline outline-[3px] outline-black">
         <button
           className="h-[68px] w-[68px] rounded-full bg-black text-center font-arial text-white md:h-16 md:w-16"
-          onClick={() => router(`/${text === "ODALHO" ? "/" : urlNormalized}`)}
+          onClick={() => router.push(`/${text === "ODALHO" ? "/" : urlNormalized}`)}
         >
           <span className="text-[12px]">{text}</span>
         </button>
