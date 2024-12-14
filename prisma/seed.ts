@@ -3,17 +3,17 @@ import { chapters } from "./fixtures/chapters";
 import { hashPassword } from "@/helpers/password-adapter";
 
 async function main() {
-  for(let c of chapters) {
+  /* for(let c of chapters) {
         await db.chapters.create({data: {
             name: c.text,
             number: c.chapter
         }})
-    }
+    } */
   await db.user.create({
     data: {
-      name: "admin",
-      email: "admin4@test.com",
-      password: await hashPassword("admin1234"),
+      name: "Cristian",
+      email: "cristianjonin@gmail.com",
+      password: await hashPassword("odalho2022"),
     },
   });
 }

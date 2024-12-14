@@ -19,75 +19,57 @@ import { cookies } from "next/headers";
 
 export const PicturesRouter = createTRPCRouter({
   uploadPicture: protectedProcedure
-    .input(PictureDTO)
-    .mutation(async ({ ctx, input }) => {
-      cloudinary.config({
-        cloud_name: process.env.CLOUD_NAME,
-        api_key: process.env.CLOUDINARY_API_KEY,
-        api_secret: process.env.CLOUDINARY_API_SECRET,
+  .input(PictureDTO)
+  .mutation(async ({ ctx, input }) => {
+    cloudinary.config({
+      cloud_name: process.env.CLOUD_NAME,
+      api_key: process.env.CLOUDINARY_API_KEY,
+      api_secret: process.env.CLOUDINARY_API_SECRET,
+    });
+
+    try {
+      const buffer = Buffer.from(await input.image.arrayBuffer());
+
+      // Subir la imagen original
+      const uploadToCloudinary = (buffer: Buffer, folder: string): Promise<any> => {
+        return new Promise((resolve, reject) => {
+          const uploadStream = cloudinary.uploader.upload_stream(
+            { folder },
+            (error, result) => {
+              if (error) return reject(error);
+              resolve(result);
+            }
+          );
+          uploadStream.end(buffer);
+        });
+      };
+
+      const res = await uploadToCloudinary(buffer, "ODALHO");
+
+      // Crear una versión comprimida con Sharp y subirla
+      const compressedBuffer = await sharp(buffer).resize(500).toBuffer();
+      const compressedRes = await uploadToCloudinary(
+        compressedBuffer,
+        "ODALHO/thumbnails"
+      );
+
+      // Guardar información en la base de datos
+      await ctx.db.picture.create({
+        data: {
+          id: input.code,
+          name: input.title,
+          imageUrl: res.secure_url,
+          publicImgUrl: compressedRes.secure_url,
+          chapterNumber: input.chapter,
+        },
       });
 
-      try {
-        const buffer = Buffer.from(await input.image.arrayBuffer());
-
-        // Directorio temporal
-        const tempDir = path.join(process.cwd(), "temp");
-        const tempFilePath = path.join(tempDir, input.image.name);
-
-        // Crear el directorio temporal si no existe
-        await mkdir(tempDir, { recursive: true });
-
-        // Escribir el archivo temporal
-        await writeFile(tempFilePath, buffer);
-
-        const res = await cloudinary.uploader.upload(tempFilePath, {
-          folder: "ODALHO",
-        });
-
-        // Eliminar el archivo temporal después de subirlo
-        await unlink(tempFilePath);
-
-        try {
-          const compressedBuffer = await sharp(buffer).resize(500).toBuffer();
-          const compressedTempFilePath = path.join(
-            tempDir,
-            `${input.code}-compressed.jpg`,
-          );
-          await writeFile(compressedTempFilePath, compressedBuffer);
-
-          const compressedRes = await cloudinary.uploader.upload(
-            compressedTempFilePath,
-            {
-              folder: "ODALHO/thumbnails",
-            },
-          );
-
-          await db.picture.create({
-            data: {
-              id: input.code,
-              name: input.title,
-              imageUrl: res.secure_url,
-              publicImgUrl: compressedRes.secure_url,
-              chapterNumber: input.chapter,
-            },
-          });
-
-          // Eliminar el archivo temporal comprimido después de subirlo
-          await unlink(compressedTempFilePath);
-        } catch (error) {
-          console.log(error);
-        }
-
-        return {
-          ok: true,
-        };
-      } catch (error) {
-        console.log(error);
-        return {
-          error: true,
-        };
-      }
-    }),
+      return { ok: true };
+    } catch (error) {
+      console.error(error);
+      return { error: true };
+    }
+  }),
   getPictures: publicProcedure
     .input(getPicsDTO)
     .query(async ({ input, ctx }) => {
