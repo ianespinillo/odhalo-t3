@@ -13,6 +13,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8"></meta>
       <body className="flex min-h-[100vh] min-w-full flex-col gap-7 bg-[#c0c0c0]">
         {children}
       </body>
