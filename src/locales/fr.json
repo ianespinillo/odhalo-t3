@@ -1,6 +1,7 @@
 {
-    "capitulo": "Chapitre",
-    "navbar": {
+  "capitulo": "Chapitre",
+  "navbar": {
+      "subtitle": "Art digital",
       "nav1": "Qui est ODALHO",
       "nav2": "Proposition",
       "nav3": "Objectif",

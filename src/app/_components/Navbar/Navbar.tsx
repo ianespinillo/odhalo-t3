@@ -5,7 +5,7 @@ import { CircleButtons } from "../Buttons/CircleButtons";
 import { BurgerMenu } from "./BurgerMenu";
 import { useTranslations } from "next-intl";
 
-export const Navbar = ({lang}: {lang: string}) => {
+export const Navbar = () => {
   const t = useTranslations("navbar")
   
   return (
@@ -13,7 +13,7 @@ export const Navbar = ({lang}: {lang: string}) => {
       <BurgerMenu />
       <div className="flex flex-col items-center justify-center sm:hidden">
         <h1 className="text-4xl font-bold font-arial">ODALHO</h1>
-        <h4 className="text-2xl font-semibold font-arial">Arte digital</h4>
+        <h4 className="text-2xl font-semibold font-arial">{t("subtitle")}</h4>
       </div>
       <div className="bg-img hidden w-full justify-center p-10 shadow-lg outline outline-2 outline-black md:flex md:gap-1 lg:gap-3 xl:gap-12">
         {links.map((link, i) => {
